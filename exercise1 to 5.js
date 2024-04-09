@@ -1,0 +1,68 @@
+// 1.The function should return a new list which only contains 
+// the user who have higher than 18 years old
+
+
+// function Age(users) {
+//     return users.filter(user => user.age > 18);
+// }
+// const users = [
+//     { name: 'Proek', age: 21 },
+//     { name: 'Sambo', age: 14 },
+//     { name: 'Cheata', age: 16 }
+// ];
+
+// const  Higher = Age(users);
+// console.log( Higher); 
+
+// 2.create a new array containing 
+// only unique values from an array
+
+// function uniqueValue(array) {
+//     return array.filter((value, index, arr) => {
+//         return arr.indexOf(value) == index;
+//     });
+// }
+// const uniqueArray = uniqueValue([2, 2, 1, 10, 9, 8, 9]);
+// console.log(uniqueArray);
+
+// 3.create the names of the users
+
+// function getUserNames(users) {
+//     return users.map(user => user.name);
+// }
+
+// const users = [
+//     { name: 'Proek', age: 27 },
+//     { name: 'Sambo', age: 18 },
+//     { name: 'Chilin', age: 20 }
+// ];
+
+// const names = getUserNames(users);
+// console.log(names);
+
+// 4. format "YYYY-MM-DD" to "DD/MM/YYYY"
+
+// function formatDateArray(dateArray) {
+//     return dateArray.map(dateString => {
+//         const [year, month, day] = dateString.split('-');
+//         return `${day}/${month}/${year}`;
+//     });
+// }
+
+// const dates = ["2024-01-01", "2024-02-02", "2024-04-04"];
+// const formattedDates = formatDateArray(dates);
+// console.log(formattedDates);
+
+// 5.find the maximum number
+
+
+// const numbers = [10, 5, 20, 15, 8];
+// const maxNumber = findMaxNumber(numbers);
+
+// function findMaxNumber(numbers) {
+//     return numbers.reduce((max, current) => {
+//         return (current > max) ? current : max;
+//     }, numbers[0]);
+// }
+// console.log(maxNumber); 
+

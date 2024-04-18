@@ -1,13 +1,16 @@
-const fs = require("node:fs");
+const fs = require("fs");
 
-fs.readFile(
-  "c:/Users/konbr/OneDrive/Desktop/Full stack development bootcamp 4 at sabaicode/Coding in bootcamp 4/javascriptP3/3.exercise.txt",
-  "utf8",
-  (err, data) => {
+function readFile(filePath, callbak) {
+  fs.readFile(filePath, "utf-8", (err, data) => {
     if (err) {
-      console.error(err);
-      return;
+      console.log(err);
     }
-    console.log(data);
-  }
+    else {
+      callbak(data);
+    }
+  });
+}
+readFile(
+  "D:/Sabai Code/Homework java script/Javascript part3/Javascript part3/exercise3.txt",
+   data
 );

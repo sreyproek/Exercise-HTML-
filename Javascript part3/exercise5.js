@@ -1,59 +1,62 @@
-const fs = require('fs');
+const fs = require("node:fs");
+let append;
+let output2 = " ";
+let append2;
 
-function readFileAsync(filePath, callback) {
-    fs.readFile(filePath, 'utf8', (err, data) => {
+fs.readFile(
+    "D:/Sabai Code/Homework java script/Javascript part3/Javascript part3/exercise5.txt",
+    "utf8",
+    (err, data) => {
         if (err) {
-            callback(err, null);
-            return;
-        }
-        callback(null, data);
-    });
-}
-
-function writeFileAsync(filePath, content, callback) {
-    fs.writeFile(filePath, content, (err) => {
-        if (err) {
-            callback(err);
-            return;
-        }
-        callback(null);
-    });
-}
-
-readFileAsync('input.txt', (err, inputContent) => {
-    if (err) {
-        console.error('Error reading input.txt:', err);
-        return;
-    }
-
-    const output1Content = inputContent + '\nFirst modification';
-    writeFileAsync('output1.txt', output1Content, (err) => {
-        if (err) {
-            console.error('Error writing to output1.txt:', err);
+            console.error(err);
             return;
         }
 
-        readFileAsync('output1.txt', (err, output1Content) => {
+        append = data + "First modofication";
+        fs.appendFile("exercise5.txt", append, (err) => {
             if (err) {
-                console.error('Error reading output1.txt:', err);
-                return;
+                console.error(err);
             }
+            else{
+                fs.readFile(
+                    "D:/Sabai Code/Homework java script/Javascript part3/Javascript part3/output1.txt",                                                                                                                                                                                                                                            
+                    "utf8",
+                    (err, append) => {
+                        if (err) {
+                            console.error(err);
+                            return;
+                        }
 
-            const output2Content = output1Content + '\nSecond modification';
-            writeFileAsync('output2.txt', output2Content, (err) => {
-                if (err) {
-                    console.error('Error writing to output2.txt:', err);
-                    return;
+                        fs.writeFile(
+                            "D:/Sabai Code/Homework java script/Javascript part3/Javascript part3/output2.txt",
+                            output2,
+                            (err) => {
+                                if (err) {
+                                    console.error(err);
+                                }
+                                else{
+                                    append2 = append + "Second modification";
+                                    fs.appendFile("output2.txt", append2, (err) => {
+                                        if (err) {
+                                            console.error(err);
+                                        }
+                                        else {
+                                            fs.readFile(
+                                                "D:/Sabai Code/Homework java script/Javascript part3/Javascript part3/output2.txt",
+                                                "utf8",
+                                                (err, append2) => {
+                                                    if (err) {
+                                                        console.error(err);
+                                                        return;
+                                                    }
+                                                    console.log("final result:", append2);
+                                                });
+                                            }
+                                        });
+                                    }
+                                });
+                            });
+                        }
+                    });
                 }
-
-                readFileAsync('output2.txt', (err, output2Content) => {
-                    if (err) {
-                        console.error('Error reading output2.txt:', err);
-                        return;
-                    }
-                    console.log(output2Content);
-                });
-            });
-        });
-    });
-});
+            );

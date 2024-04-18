@@ -1,21 +1,20 @@
-const fs = require('fs');
+const fs = require("node:fs");
+const content = "welcome to my world";
 
-function writeFileAsync(filePath, content, callback) {
-    fs.writeFile(filePath, content, (err) => {
+function writeFileFunction(filepath, callback) {
+    fs.writeFile(filepath, content, (err) => {
         if (err) {
-            callback(err);
-        } else {
-            callback(null);
+            console.error(err);
+        }
+        else {
+            callback(content);
         }
     });
 }
-const filePath = 'example.txt';
-const fileContent = 'Hello, world!';
 
-writeFileAsync(filePath, fileContent, (err) => {
-    if (err) {
-        console.error('Error writing file:', err);
-    } else {
-        console.log('File written successfully.');
+writeFileFunction(
+    "D:/Sabai Code/Homework java script/Javascript part3/Javascript part3/exercise4.txt",
+    (content1) => {
+        console.log(content1);
     }
-});
+);
